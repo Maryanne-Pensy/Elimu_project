@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    /* background: linear-gradient(to right, #993333, #cc6666); */
+    background-color: #fefefe;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Search Form Styles */
+.search-form {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.search-form label {
+    margin-right: 10px;
+}
+
+.search-form select, .search-form button {
+    font-size: 1.2em;
+    padding: 5px 13px;
+}
+
+.search-form button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #993333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px
+}
+
+.search-form button:hover {
+    background-color: #7CA3B5;
+}
+
+select {
+            font-size: 1em;
+            padding: 8px 12px;
+        }
+
+a {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .status-select {
+            font-size: 1em;
+            padding: 8px 12px; 
+        }
+        .logout-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #993333;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: #7CA3B5;
+}
+#search{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+}
+
+
+    </style>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Phone Number</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% crimeReports.forEach(report => { %>
+                <tr>
+                    <td><%= report.name %></td>
+                    <td><%= report.location %></td>
+                    <td><%= report.phoneno %></td>
+                    <td><%= report.description %></td>
+                    <td><%= report.date %></td>
+                    <td>
+                        <form action="/admin/changeStatus/<%= report._id %>" method="POST">
+                            <select name="status" onchange="this.form.submit()">
+                                <option value="resolved" <%= report.status === 'resolved' ? 'selected' : '' %>>Resolved</option>
+                                <option value="pending" <%= report.status === 'pending' ? 'selected' : '' %>>Pending</option>
+                            </select>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <form class="search-form" action="/admin/dashboard" method="GET">
+        <label for="status" id="search">Search by Status:</label>
+        <select name="status" id="searchStatus">
+            <option value="resolved">Resolved</option>
+            <option value="pending">Pending</option>
+        </select>
+        <button type="submit">Search</button>
+    </form>
+    <a href="/logout" class="logout-button">Logout</a>
+</body>
+</html>
+
+

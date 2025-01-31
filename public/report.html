@@ -1,0 +1,596 @@
+<!-- 
+ <!DOCTYPE html>
+ <html lang="en">
+ 
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Crime Report Form</title>
+   <link rel="stylesheet" href="style.css">
+   <style>
+     .modal {
+       display: none;
+       position: fixed;
+       z-index: 1;
+       left: 0;
+       top: 0;
+       width: 100%;
+       height: 100%;
+       overflow: auto;
+       background-color: rgb(0, 0, 0);
+       background-color: rgba(0, 0, 0, 0.4);
+     }
+ 
+     .modal-content {
+       background-color: #fefefe;
+       margin: 15% auto;
+       padding: 20px;
+       border: 1px solid #888;
+       width: 80%;
+     }
+ 
+     .close {
+       color: #aaa;
+       float: right;
+       font-size: 28px;
+       font-weight: bold;
+     }
+ 
+     .close:hover,
+     .close:focus {
+       color: black;
+       text-decoration: none;
+       cursor: pointer;
+     }
+   </style>
+ </head>
+ 
+ <body>
+   <header class="header-image"></header>
+   <nav>
+    <ul>
+      <li><a href="#safeguarding-policy">Safeguarding Policy</a></li>
+      <li><a href="#report-form">Report Form</a></li>
+    </ul>
+  </nav>
+   <div class="container">
+     <section class="card">
+       <h2>About Elimu</h2>
+       <p>
+         Elimu is building a learning community in Kenya empowering vulnerable learners of all kinds in achieving
+         their educational and work-related goals. Over the years, the objectives of Elimu became clearer and the focus has
+         been honed from ‘enhancing access to education’ to ‘providing solutions for vulnerable children, youth, and adults
+         to achieve their life goals at every stage of their learning’.
+       </p>
+     </section>
+ 
+     <section class="card">
+       <h2>Organization Background</h2>
+       <p>
+         Elimu is an official charitable organization registered since 2011 in Canada and since 2013 in Kenya. Elimu is
+         built of a team of professionals from different cultural and spiritual backgrounds united by an authentic passion
+         for improving lives by facilitating self-directed learning, especially for those from vulnerable situations. Each
+         of those serving children in Kenya does so from a living Christian faith. Elimu readily serves all faith
+         backgrounds without reservation.
+       </p>
+     </section>
+ 
+     <section class="card">
+       <h2>Projects and Initiatives</h2>
+       <ul>
+         <li>Elimu Resource Centre – a digital hub for learners</li>
+         <li>Artisan Maker Space – boosting income generation for sewing artisans</li>
+         <li>Mobile Digital Reading Program – taking digital resources to vulnerable communities</li>
+         <li>Offline eLearning Solution – based on the Kolibri edutech platform</li>
+         <li>Stay in School Project – keeping Kenyan kids in school</li>
+         <li>Elimu Sewing Project - digital literacy and a sewing trade improve livelihoods for young women</li>
+       </ul>
+     </section>
+ 
+     <section class="card">
+       <h2>Safeguarding Policy</h2>
+       <p>
+         This policy document has been developed to ensure that staff, interns/volunteers, and partners of Elimu have
+         adequate child safeguarding measures in place for reducing the risk of and for addressing concerns related to
+         child abuse, exploitation, and neglect that can result from personnel.
+       </p>
+     </section>
+ 
+     <section class="card">
+       <h2>Legal Framework and Commitment</h2>
+       <p>
+         The legal framework states that all children under the age of 18 have a right to protection from abuse or
+         exploitation. Elimu Development Projects (Elimu) will not tolerate any child abuse or exploitation as it goes
+         against the very beliefs, values, and aims of our organization. We have a responsibility to ensure that all
+         employees, volunteers, consultants, and partners are given clear guidance about the standards of behavior and
+         practice required of them at all times when they are in contact with children.
+       </p>
+     </section>
+ 
+     <section class="card">
+       <h2>Policy Update and Accountability</h2>
+       <p>
+         This policy forms part of an employee's terms and conditions of employment and may be subject to change at the
+         discretion of management. We continually monitor and update our safeguarding policies to be accountable and improve. We believe
+         we have a moral obligation to maintain the highest ethical standards in our work.
+       </p>
+     </section>
+ 
+     <section class="card">
+       <h2>Commitments</h2>
+       <p>
+         Elimu commits to treat children and young people with dignity and respect in all areas of its work. It takes all
+         reasonable measures to control known and foreseeable risks to children and young people involved in its activities.
+       </p>
+       <p>
+         Elimu’s Child protection Policy reflects good practice among international standards of working with children.
+         Elimu commits to encourage children and young people, wherever appropriate, to contribute to decisions affecting them.
+       </p>
+       <p>
+         Elimu commits to respect every child regardless of race, colour, gender, sexual orientation, language, religion,
+         political or other opinion; national, ethnic or social origin, property, disability, birth or other status. This
+         commitment is consistent with the United Nations Child values.
+       </p>
+       <p>
+         Elimu commits to act in all situations, in the best interest of the needs of the child.
+       </p>
+       <p>
+         Elimu will ensure that every member of staff understands their responsibilities in child protection, including the
+         responsibility to behave appropriately when working with children and young people.
+       </p>
+       <p>
+         Elimu ensures that staff with management responsibility for activities involving direct contact with children and
+         young people are sensitized to communicate child protection measures to their subordinates.
+       </p>
+       <p>
+         Partners working with Elimu must either have their own child protection policy or will abide by Elimu’s policy.
+       </p>
+     </section>
+ 
+     <section class="card">
+       <h2>Policy</h2>
+       <p>
+         We continually monitor and update our safeguarding policies in order to be accountable and improve. We believe
+         we have a moral obligation to maintain the highest ethical standards in our work.
+       </p>
+     </section>
+ 
+     <section class="card">
+       <h2>Reporting</h2>
+       <p>
+         Have you witnessed an incident that put a child or adult beneficiary at risk? Do you have a concern about a Elimu
+         staff member’s behavior? Any other safeguarding concern?
+         Please fill out the form below.
+       </p>
+     </section>
+ 
+     <section class="card">
+       <form id="crimeReportForm" action="/report" method="POST">
+         <div class="form-elements-wrapper">
+           <h1>Report</h1>
+           <label for="name">Name (Optional)</label>
+           <input type="text" id="name" class="input-area" name="name" placeholder="Enter your name">
+ 
+           <label for="location">
+             <span class="star">*</span> Incident Location
+             <input type="text" id="location" name="location" class="input-area" placeholder="Enter your location"
+               required>
+           </label>
+ 
+           <label for="phoneno">
+             <span class="star">*</span> Phone Number
+             <input type="text" id="phoneno" class="input-area" name="phoneno" placeholder="Enter your location"
+               required>
+           </label>
+ 
+           <label for="description">
+             <span class="star">*</span> Description
+             <textarea id="description" name="description" required></textarea>
+           </label>
+ 
+           <label for="date">
+             <span class="star">*</span> Date
+             <input type="date" id="date" class="input-area" name="date">
+           </label>
+ 
+           <button type="submit">Submit Report</button>
+         </div>
+       </form>
+     </section>
+   </div>
+ 
+   <footer>
+     <p>&copy; Email: safeguarding@elimu.ca</p>
+     <p>&copy; Call/Text: +254 700 875 540</p>
+   </footer>
+ 
+   <div id="myModal" class="modal">
+     <div class="modal-content">
+       <span class="close">&times;</span>
+       <p id="modalMessage"></p>
+     </div>
+   </div>
+ 
+   <script>
+     document.getElementById('crimeReportForm').addEventListener('submit', function (event) {
+       const phonenoInput = document.getElementById('phoneno');
+       const phonenoValue = phonenoInput.value;
+ 
+       const dateInput = document.getElementById('date');
+       const dateValue = dateInput.value;
+ 
+       let isValid = true;
+ 
+       // Validate that phone number is a valid number
+       if (isNaN(phonenoValue) || phonenoValue.trim() === '') {
+         alert('Please enter a valid phone number.');
+         phonenoInput.focus();
+         isValid = false;
+       }
+ 
+       // Validate that date is a valid date
+       if (!isValidDate(dateValue)) {
+         alert('Please enter a valid date.');
+         dateInput.focus();
+         isValid = false;
+       }
+ 
+       if (!isValid) {
+         event.preventDefault();
+       } else {
+         event.preventDefault();
+         const name = document.getElementById('name').value;
+         const description = document.getElementById('description').value;
+         const location = document.getElementById('location').value;
+ 
+         fetch('/report', {
+           method: 'POST',
+           headers: {
+             'Content-Type': 'application/json'
+           },
+           body: JSON.stringify({
+             name: name,
+             description: description,
+             location: location,
+             phoneno: phonenoValue,
+             date: dateValue
+           })
+         })
+           .then(response => response.text())
+           .then(data => {
+             showModal(data);
+             document.getElementById('crimeReportForm').reset(); // Reset the form here
+           })
+           .catch(error => {
+             showModal("Error reporting information: " + error);
+           });
+       }
+     });
+ 
+     function isValidDate(dateString) {
+       const date = new Date(dateString);
+       const today = new Date();
+       return date instanceof Date && !isNaN(date) && date <= today;
+     }
+ 
+     function showModal(message) {
+       const modal = document.getElementById('myModal');
+       const modalMessage = document.getElementById('modalMessage');
+       modalMessage.textContent = message;
+       modal.style.display = "block";
+     }
+ 
+     document.querySelector('.close').addEventListener('click', function () {
+       document.getElementById('myModal').style.display = "none";
+     });
+ 
+     window.onclick = function (event) {
+       const modal = document.getElementById('myModal');
+       if (event.target == modal) {
+         modal.style.display = "none";
+       }
+     }
+   </script>
+ 
+ </body>
+ 
+ </html>
+  -->
+  <!DOCTYPE html>
+  <html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Page Home</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+  
+      .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+      }
+  
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+  
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <header class="header-image"> </header>
+    <nav>
+      <ul>
+        <li><a href="#safeguarding-policy">Safeguarding Policy</a></li>
+        <li><a href="#report-form">Report Form</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <section class="card">
+        <h2>About Elimu</h2>
+        <p>
+          Elimu is building a learning community in Kenya empowering vulnerable learners of all kinds in achieving
+          their educational and work-related goals. Over the years, the objectives of Elimu became clearer and the focus has
+          been honed from ‘enhancing access to education’ to ‘providing solutions for vulnerable children, youth, and adults
+          to achieve their life goals at every stage of their learning’.
+        </p>
+      </section>
+  
+      <section class="card">
+        <h2>Organization Background</h2>
+        <p>
+          Elimu is an official charitable organization registered since 2011 in Canada and since 2013 in Kenya. Elimu is
+          built of a team of professionals from different cultural and spiritual backgrounds united by an authentic passion
+          for improving lives by facilitating self-directed learning, especially for those from vulnerable situations. Each
+          of those serving children in Kenya does so from a living Christian faith. Elimu readily serves all faith
+          backgrounds without reservation.
+        </p>
+      </section>
+  
+      <section class="card">
+        <h2>Projects and Initiatives</h2>
+        <ul>
+          <li>Elimu Resource Centre – a digital hub for learners</li>
+          <li>Artisan Maker Space – boosting income generation for sewing artisans</li>
+          <li>Mobile Digital Reading Program – taking digital resources to vulnerable communities</li>
+          <li>Offline eLearning Solution – based on the Kolibri edutech platform</li>
+          <li>Stay in School Project – keeping Kenyan kids in school</li>
+          <li>Elimu Sewing Project - digital literacy and a sewing trade improve livelihoods for young women</li>
+        </ul>
+      </section>
+  
+      <section id="safeguarding-policy" class="card">
+        <h2>Safeguarding Policy</h2>
+        <img src="elimu.png" alt="safeguarding policy image" class="policy-image">
+        <p>
+          This policy document has been developed to ensure that staff, interns/volunteers, and partners of Elimu have
+          adequate child safeguarding measures in place for reducing the risk of and for addressing concerns related to
+          child abuse, exploitation, and neglect that can result from personnel.
+        </p>
+      </section>
+  
+      <section class="card">
+        <h2>Legal Framework and Commitment</h2>
+        <p>
+          The legal framework states that all children under the age of 18 have a right to protection from abuse or
+          exploitation. Elimu Development Projects (Elimu) will not tolerate any child abuse or exploitation as it goes
+          against the very beliefs, values, and aims of our organization. We have a responsibility to ensure that all
+          employees, volunteers, consultants, and partners are given clear guidance about the standards of behavior and
+          practice required of them at all times when they are in contact with children.
+        </p>
+      </section>
+  
+      <section class="card">
+        <h2>Policy Update and Accountability</h2>
+        <p>
+          This policy forms part of an employee's terms and conditions of employment and may be subject to change at the
+          discretion of management. We continually monitor and update our safeguarding policies to be accountable and improve. We believe
+          we have a moral obligation to maintain the highest ethical standards in our work.
+        </p>
+      </section>
+  
+      <section class="card">
+        <h2>Commitments</h2>
+        <p>
+          Elimu commits to treat children and young people with dignity and respect in all areas of its work. It takes all
+          reasonable measures to control known and foreseeable risks to children and young people involved in its activities.
+        </p>
+        <p>
+          Elimu’s Child protection Policy reflects good practice among international standards of working with children.
+          Elimu commits to encourage children and young people, wherever appropriate, to contribute to decisions affecting them.
+        </p>
+        <p>
+          Elimu commits to respect every child regardless of race, colour, gender, sexual orientation, language, religion,
+          political or other opinion; national, ethnic or social origin, property, disability, birth or other status. This
+          commitment is consistent with the United Nations Child values.
+        </p>
+        <p>
+          Elimu commits to act in all situations, in the best interest of the needs of the child.
+        </p>
+        <p>
+          Elimu will ensure that every member of staff understands their responsibilities in child protection, including the
+          responsibility to behave appropriately when working with children and young people.
+        </p>
+        <p>
+          Elimu ensures that staff with management responsibility for activities involving direct contact with children and
+          young people are sensitized to communicate child protection measures to their subordinates.
+        </p>
+        <p>
+          Partners working with Elimu must either have their own child protection policy or will abide by Elimu’s policy.
+        </p>
+      </section>
+  
+      <section class="card">
+        <h2>Policy</h2>
+        <p>
+          We continually monitor and update our safeguarding policies in order to be accountable and improve. We believe
+          we have a moral obligation to maintain the highest ethical standards in our work.
+        </p>
+      </section>
+  
+      <section id="report-form" class="card">
+        <h2>Reporting</h2>
+        <p>
+          Have you witnessed an incident that put a child or adult beneficiary at risk? Do you have a concern about a Elimu
+          staff member’s behavior? Any other safeguarding concern?
+          Please fill out the form below.
+        </p>
+      </section>
+  
+      <section class="card">
+        <form id="crimeReportForm" action="/report" method="POST">
+          <div class="form-elements-wrapper">
+            <h1>Report</h1>
+            <label for="name">Name (Optional)</label>
+            <input type="text" id="name" class="input-area" name="name" placeholder="Enter your name">
+  
+            <label for="location">
+              <span class="star">*</span> Incident Location
+              <input type="text" id="location" name="location" class="input-area" placeholder="Enter your location"
+                required>
+            </label>
+  
+            <label for="phoneno">
+              <span class="star">*</span> Phone Number
+              <input type="text" id="phoneno" class="input-area" name="phoneno" placeholder="Enter your location"
+                required>
+            </label>
+  
+            <label for="description">
+              <span class="star">*</span> Description
+              <textarea id="description" name="description" required></textarea>
+            </label>
+  
+            <label for="date">
+              <span class="star">*</span> Date
+              <input type="date" id="date" class="input-area" name="date">
+            </label>
+  
+            <input type="submit" value="submit" id="submit">
+          </div>
+        </form>
+      </section>
+      </section>
+    </div>
+  
+    <footer>
+      <p>&copy; Email: safeguarding@elimu.ca</p>
+      <p>&copy; Call/Text: +254 700 875 540</p>
+    </footer>
+    
+   <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p id="modalMessage"></p>
+    </div>
+  </div>
+    <script>
+       document.getElementById('crimeReportForm').addEventListener('submit', function (event) {
+       const phonenoInput = document.getElementById('phoneno');
+       const phonenoValue = phonenoInput.value;
+ 
+       const dateInput = document.getElementById('date');
+       const dateValue = dateInput.value;
+ 
+       let isValid = true;
+ 
+       // Validate that phone number is a valid number
+       if (isNaN(phonenoValue) || phonenoValue.trim() === '') {
+         alert('Please enter a valid phone number.');
+         phonenoInput.focus();
+         isValid = false;
+       }
+ 
+       // Validate that date is a valid date
+       if (!isValidDate(dateValue)) {
+         alert('Please enter a valid date.');
+         dateInput.focus();
+         isValid = false;
+       }
+ 
+       if (!isValid) {
+         event.preventDefault();
+       } else {
+         event.preventDefault();
+         const name = document.getElementById('name').value;
+         const description = document.getElementById('description').value;
+         const location = document.getElementById('location').value;
+ 
+         fetch('/report', {
+           method: 'POST',
+           headers: {
+             'Content-Type': 'application/json'
+           },
+           body: JSON.stringify({
+             name: name,
+             description: description,
+             location: location,
+             phoneno: phonenoValue,
+             date: dateValue
+           })
+         })
+           .then(response => response.text())
+           .then(data => {
+             showModal(data);
+             document.getElementById('crimeReportForm').reset(); // Reset the form here
+           })
+           .catch(error => {
+             showModal("Error reporting information: " + error);
+           });
+       }
+     });
+ 
+     function isValidDate(dateString) {
+       const date = new Date(dateString);
+       const today = new Date();
+       return date instanceof Date && !isNaN(date) && date <= today;
+     }
+ 
+     function showModal(message) {
+       const modal = document.getElementById('myModal');
+       const modalMessage = document.getElementById('modalMessage');
+       modalMessage.textContent = message;
+       modal.style.display = "block";
+     }
+ 
+     document.querySelector('.close').addEventListener('click', function () {
+       document.getElementById('myModal').style.display = "none";
+     });
+ 
+     window.onclick = function (event) {
+       const modal = document.getElementById('myModal');
+       if (event.target == modal) {
+         modal.style.display = "none";
+       }
+     }
+    </script>
+  </body>
+
+  
+  </html>
+  
